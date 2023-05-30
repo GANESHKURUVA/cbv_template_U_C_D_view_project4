@@ -1,0 +1,31 @@
+{% extends 'app/dummy.html' %}
+
+{% block title %}
+<title>Insertion Page</title>
+{% endblock %}
+
+{% block body_block %}
+<center>
+{% if form.instance.pk %}
+<h1>Update The Details</h1>
+{% else %}
+<h1>Fill The Form  To Create New School</h1>
+{% endif %}
+
+<form  method="POST">
+    {% csrf_token%}
+    {{form.as_p}}
+
+
+    {% if form.instance.pk %}
+    <input type="submit" value="Update" class="btn btn-success">
+    {% else %}
+    <input type="submit" value="INSERT" class="btn btn-primary">
+    {% endif %}
+</form>
+
+
+
+</center>
+
+{% endblock %}

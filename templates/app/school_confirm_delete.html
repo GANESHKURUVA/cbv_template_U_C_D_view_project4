@@ -1,0 +1,22 @@
+{% extends 'app/dummy.html' %}
+
+{% block title %}
+<title>Deletion Page</title>
+{% endblock %}
+
+{% block body_block %}
+<center>
+<h1>This Is Deletion Page</h1>
+<h1>The Data Which you are deleting {{school.name}}</h1>
+
+<form  method="POST">
+    {% csrf_token%}
+    
+    <input type="submit" value="Are-You-Sure_to_Delete" class="btn btn-danger">
+</form>
+<a href="{% url 'SchoolList' %}" class="btn btn-primary">No-GO-Back-List</a>
+<a href="{% url 'School_detail' pk=school.pk %}" class="btn btn-info">NO-GO-BACK-DETAIL</a>
+
+</center>
+
+{% endblock %}
